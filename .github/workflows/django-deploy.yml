@@ -15,7 +15,7 @@ jobs:
         run: |
           cd /home/rahul/mini_project
           git pull origin master
-          source /home/rahul/mini_project/Backend/venv/bin/activate
+          source /home/rahul/mini_project/Backend/venv/Scripts/activate
           pip3 install -r /home/rahul/mini_project/Backend/requirements.txt
           python3 /home/rahul/mini_project/Backend/manage.py makemigrations
           python3 /home/rahul/mini_project/Backend/manage.py migrate
