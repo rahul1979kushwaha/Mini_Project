@@ -14,11 +14,16 @@ jobs:
         working-directory: /home/rahul/mini_project
         run: |
           cd /home/rahul/mini_project
+          echo $path
           git pull origin master
       - name: setup new django
         run: |
           source /home/rahul/mini_project/Backend/venv/Scripts/activate
           pip3 install -r /home/rahul/mini_project/Backend/requirements.txt
+      - name: database migrations
+        run: |
           python3 /home/rahul/mini_project/Backend/manage.py makemigrations
           python3 /home/rahul/mini_project/Backend/manage.py migrate
-          python3 /home/rahul/mini_project/Backend/manage.py runserver 0.0.0.0:8000
+      - name: starting gunicorn server
+        run: |
+          gunicorn --bind 0.0.0.0:8000 /home/rahul/mini_project/Backend/miniprojectapi.wsgi
