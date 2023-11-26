@@ -15,8 +15,8 @@ jobs:
         run: |
           cd /home/rahul/mini_project
           git pull origin master
-          source ./Backend/venv/bin/activate
-          pip3 install -r ./Backend/requirements.txt
-          python3 ./Backend/manage.py makemigrations
-          python3 ./Backend/manage.py migrate
-          python3 ./Backend/manage.py runserver 0.0.0.0:8000
+          source /home/rahul/mini_project/Backend/venv/bin/activate
+          pip3 install -r /home/rahul/mini_project/Backend/requirements.txt
+          python3 /home/rahul/mini_project/Backend/manage.py makemigrations
+          python3 /home/rahul/mini_project/Backend/manage.py migrate
+          python3 /home/rahul/mini_project/Backend/manage.py runserver 0.0.0.0:8000
