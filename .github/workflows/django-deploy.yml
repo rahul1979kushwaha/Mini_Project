@@ -13,6 +13,7 @@ jobs:
       - name: git pull
         working-directory: /home/rahul/mini_project
         run: |
+          cd /home/rahul/mini_project
           git pull
           source ./Backend/venv/bin/activate
           pip3 install -r ./Backend/requirements.txt
