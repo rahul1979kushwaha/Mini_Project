@@ -4,22 +4,18 @@ on:
   workflow_run:
     workflows: ['Django CI']
     types:
-        - completed
+      - completed
 
 jobs:
   build:
-
     runs-on: self-hosted
-
     steps:
-        - name: git pull
+      - name: git pull
         working-directory: /home/rahul/mini_project
         run: |
-            git pull
-            source ./Backend/venv/Scripts/activate
-            pip3 intsall -r ./Backend/requirements.txt
-            python3 ./Backend/manage.py makemigrations
-            python3 ./Backend/manage.py migrate
-            python3 ./Backend/manage.py runserver 0.0.0.0:8000
-
-
+          git pull
+          source ./Backend/venv/bin/activate
+          pip3 install -r ./Backend/requirements.txt
+          python3 ./Backend/manage.py makemigrations
+          python3 ./Backend/manage.py migrate
+          python3 ./Backend/manage.py runserver 0.0.0.0:8000
