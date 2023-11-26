@@ -14,7 +14,7 @@ jobs:
         working-directory: /home/rahul/mini_project
         run: |
           cd /home/rahul/mini_project
-          git pull origin master
+          git pull
           source ./Backend/venv/bin/activate
           pip3 install -r ./Backend/requirements.txt
           python3 ./Backend/manage.py makemigrations
