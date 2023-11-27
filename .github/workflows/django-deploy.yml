@@ -10,11 +10,13 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: git pulls
         working-directory: /home/rahul/mini_project
         run: |
           cd /home/rahul/mini_project
-          git pull origin master
+          git pull
       - name: setup new django
         run: |
           source /home/rahul/mini_project/Backend/venv/Scripts/activate
