@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import JsonResponse
 
-def index(request):
-    return HttpResponse("hello")
+
+def index(request, *args, **kwargs):
+    return JsonResponse({'message':"hello this is msg"})
