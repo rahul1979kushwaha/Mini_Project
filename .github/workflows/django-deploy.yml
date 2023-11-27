@@ -10,11 +10,10 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-      - name: git pull
+      - name: git pulls
         working-directory: /home/rahul/mini_project
         run: |
           cd /home/rahul/mini_project
-          echo $path
           git pull origin master
       - name: setup new django
         run: |
