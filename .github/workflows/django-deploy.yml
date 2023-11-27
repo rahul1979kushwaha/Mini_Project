@@ -23,6 +23,9 @@ jobs:
         run: |
           python3 /home/rahul/mini_project/Backend/manage.py makemigrations
           python3 /home/rahul/mini_project/Backend/manage.py migrate
-      - name: starting gunicorn server
+      - name: restarting gunicorn server
         run: |
-          gunicorn --bind 0.0.0.0:8000 /home/rahul/mini_project/Backend/miniprojectapi.wsgi
+          sudo systemctl restart gunicorn
+      - name: restarting gunicorn server
+        run: |
+          sudo systemctl restart nginx
