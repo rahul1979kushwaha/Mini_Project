@@ -27,7 +27,7 @@ jobs:
           python3 /home/rahul/mini_project/Backend/manage.py migrate
       - name: restarting gunicorn server
         run: |
-          sudo systemctl restart gunicorn
+          echo Rahul | sudo -S systemctl restart gunicorn  
       - name: restarting gunicorn server
         run: |
-          sudo systemctl restart nginx
+          echo Rahul | sudo -S systemctl restart nginx
