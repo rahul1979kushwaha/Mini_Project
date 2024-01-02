@@ -1,0 +1,33 @@
+name: Django Deploy
+
+on:
+  workflow_run:
+    workflows: ['Django CI']
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: git pulls
+        working-directory: /home/rahul/mini_project
+        run: |
+          cd /home/rahul/mini_project
+          git pull
+      - name: setup new django
+        run: |
+          source /home/rahul/mini_project/Backend/venv/Scripts/activate
+          pip3 install -r /home/rahul/mini_project/Backend/requirements.txt
+      - name: database migrations
+        run: |
+          python3 /home/rahul/mini_project/Backend/manage.py makemigrations
+          python3 /home/rahul/mini_project/Backend/manage.py migrate
+      - name: restarting gunicorn server
+        run: |
+          echo Rahul | sudo -S systemctl restart gunicorn  
+      - name: restarting gunicorn server
+        run: |
+          echo Rahul | sudo -S systemctl restart nginx
