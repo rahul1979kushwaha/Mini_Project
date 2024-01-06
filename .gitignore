@@ -128,4 +128,4 @@ packages/react-devtools-shell/dist
 packages/react-devtools-timeline/dist
 rahul_rsa.pem
 
-venv/
+*/venv/
